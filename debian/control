@@ -1,0 +1,19 @@
+Source: blasfeo
+Priority: optional
+Maintainer: Pierre Gergondet <pierre.gergondet+ppa@gmail.com>
+Standards-Version: 3.9.5
+Section: libs
+Homepage: https://github.com/gias/blasfeo
+Build-Depends: debhelper (>= 9),
+               pkg-config,
+               cmake,
+               doxygen,
+               graphviz
+
+Package: libblasfeo-dev
+Section: libdevel
+Architecture: any
+Depends: cmake,
+         ${shlibs:Depends},
+         ${misc:Depends}
+Description: BLAS For Embedded Optimization

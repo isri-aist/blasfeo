@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+IS_64BIT:=$(shell file -b /bin/bash|grep "ELF 64-bit")
+ifeq ($(strip ${IS_64BIT}),)
+	BLASFEO_TARGET:=GENERIC
+else
+	BLASFEO_TARGET:=X64_INTEL_HASWELL
+endif
+
+%:
+	dh $@ --parallel --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_INSTALL_PREFIX=/usr -DTARGET=${BLASFEO_TARGET} -DBLASFEO_EXAMPLES:BOOL=OFF
