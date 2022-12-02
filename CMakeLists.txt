@@ -41,6 +41,7 @@ set(CMAKE_INSTALL_PREFIX "/opt/blasfeo" CACHE STRING "Installation path")
 project(blasfeo C ASM)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
+include(GNUInstallDirs)
 
 # enable_language(C ASM)
 
@@ -1194,12 +1195,12 @@ target_include_directories(blasfeo
 
 
 install(TARGETS blasfeo EXPORT blasfeoConfig
-	LIBRARY DESTINATION lib
-	ARCHIVE DESTINATION lib
-	RUNTIME DESTINATION bin)
+  LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
 
-install(EXPORT blasfeoConfig DESTINATION cmake)
+install(EXPORT blasfeoConfig DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/blasfeo")
 
 file(GLOB_RECURSE BLASFEO_HEADERS "include/*.h")
 install(FILES ${BLASFEO_HEADERS} DESTINATION ${BLASFEO_HEADERS_INSTALLATION_DIRECTORY})
