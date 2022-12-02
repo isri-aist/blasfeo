@@ -129,7 +129,7 @@ set(BLASFEO_EXAMPLES ON CACHE BOOL "Examples enabled")
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build shared libraries")
 
 # headers installation directory
-set(BLASFEO_HEADERS_INSTALLATION_DIRECTORY "include" CACHE STRING "Headers local installation directory")
+set(BLASFEO_HEADERS_INSTALLATION_DIRECTORY "include/blasfeo" CACHE STRING "Headers local installation directory")
 
 
 
