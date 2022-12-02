@@ -50,6 +50,7 @@ project(blasfeo C ASM)
 include(GNUInstallDirs)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
+include(GNUInstallDirs)
 
 # enable_language(C ASM)
 
@@ -1303,9 +1304,9 @@ target_include_directories(blasfeo
 
 
 install(TARGETS blasfeo EXPORT blasfeoConfig
-	LIBRARY DESTINATION lib
-	ARCHIVE DESTINATION lib
-	RUNTIME DESTINATION bin)
+  LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
 
 install(EXPORT blasfeoConfig DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/blasfeo FILE blasfeoConfig.cmake)
